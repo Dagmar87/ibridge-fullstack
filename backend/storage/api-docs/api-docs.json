@@ -1,0 +1,124 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "Ibridge API",
+    "version": "1.0.0"
+  },
+  "servers": [
+    {
+      "url": "http://localhost:8000",
+      "description": "Local"
+    }
+  ],
+  "paths": {
+    "/api/resumo": {
+      "get": {
+        "summary": "Obtém resumo por lista",
+        "tags": ["Relatórios"],
+        "responses": {
+          "200": {
+            "description": "Lista de resumos por lista",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "lista_id": { "type": "integer" },
+                      "total": { "type": "integer" },
+                      "fechamentos": { "type": "integer" },
+                      "lista": { "type": "object" }
+                    },
+                    "required": ["lista_id", "total", "fechamentos"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/top-operadores": {
+      "get": {
+        "summary": "Top 10 operadores por fechamentos",
+        "tags": ["Relatórios"],
+        "responses": {
+          "200": {
+            "description": "Lista de operadores com total de fechamentos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "operador_id": { "type": "integer" },
+                      "total_fechamentos": { "type": "integer" },
+                      "operador": { "type": "object" }
+                    },
+                    "required": ["operador_id", "total_fechamentos"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/top-listas": {
+      "get": {
+        "summary": "Top 10 listas por fechamentos",
+        "tags": ["Relatórios"],
+        "responses": {
+          "200": {
+            "description": "Lista de listas com total de fechamentos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "lista_id": { "type": "integer" },
+                      "total_fechamentos": { "type": "integer" },
+                      "lista": { "type": "object" }
+                    },
+                    "required": ["lista_id", "total_fechamentos"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/top-campanhas": {
+      "get": {
+        "summary": "Top 10 campanhas por fechamentos",
+        "tags": ["Relatórios"],
+        "responses": {
+          "200": {
+            "description": "Lista de campanhas com total de fechamentos",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "properties": {
+                      "campanha_id": { "type": "integer" },
+                      "total_fechamentos": { "type": "integer" },
+                      "campanha": { "type": "object" }
+                    },
+                    "required": ["campanha_id", "total_fechamentos"]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
