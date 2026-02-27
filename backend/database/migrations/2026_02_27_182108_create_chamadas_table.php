@@ -20,8 +20,8 @@ class CreateChamadasTable extends Migration
 			$table->foreignId('contato_id')->constrained('contatos');
 			$table->foreignId('lista_id')->constrained('listas');
 			$table->foreignId('campanha_id')->constrained('campanhas');
-			$table->foreignId('operador_id')->constrained('operadores');
-			$table->foreignId('situacao_id')->constrained('situacoes');
+			$table->foreignId('operador_id')->constrained('operadors');
+			$table->foreignId('situacao_id')->constrained('situacaos');
 			$table->foreignId('categoria_id')->constrained('categorias');
 		});
 	}
