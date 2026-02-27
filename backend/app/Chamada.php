@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Chamada extends Model
 {
 	public $timestamps = false;
+	public $incrementing = false;
+	protected $keyType = 'int';
 	protected $fillable = [
 		'id',
 		'datahora',
