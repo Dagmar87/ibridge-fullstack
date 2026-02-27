@@ -6,26 +6,27 @@ use Illuminate\Support\Facades\Schema;
 
 class CreateListasTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
-    {
-        Schema::create('listas', function (Blueprint $table) {
-            $table->id();
-            $table->timestamps();
-        });
-    }
+	/**
+	 * Run the migrations.
+	 *
+	 * @return void
+	 */
+	public function up()
+	{
+		Schema::create('listas', function (Blueprint $table) {
+			$table->unsignedBigInteger('id')->primary();
+			$table->string('nome');
+			$table->foreignId('campanha_id')->constrained('campanhas');
+		});
+	}
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
-    {
-        Schema::dropIfExists('listas');
-    }
+	/**
+	 * Reverse the migrations.
+	 *
+	 * @return void
+	 */
+	public function down()
+	{
+		Schema::dropIfExists('listas');
+	}
 }
