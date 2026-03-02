@@ -22,11 +22,10 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/resumo', function () {
     return Chamada::selectRaw("chamadas.lista_id,
         COUNT(*) as total,
-        SUM(CASE WHEN categorias.nome = 'Sem Contato' THEN 1 ELSE 0 END) as sem_contato,
-        SUM(CASE WHEN categorias.nome = 'Contato' THEN 1 ELSE 0 END) as contato,
-        SUM(CASE WHEN categorias.nome = 'Abordagem' THEN 1 ELSE 0 END) as abordagem,
+        SUM(CASE WHEN situacao_id = 1 THEN 1 ELSE 0 END) as sem_contato,
+        SUM(CASE WHEN situacao_id = 2 THEN 1 ELSE 0 END) as contato,
+        SUM(CASE WHEN situacao_id = 3 THEN 1 ELSE 0 END) as abordagem,
         SUM(CASE WHEN situacao_id = 4 THEN 1 ELSE 0 END) as fechamentos")
-        ->join('categorias', 'categorias.id', '=', 'chamadas.categoria_id')
         ->groupBy('chamadas.lista_id')
         ->with('lista.campanha')
         ->get();
