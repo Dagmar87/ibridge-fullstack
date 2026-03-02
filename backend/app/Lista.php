@@ -10,4 +10,8 @@ class Lista extends Model
     public $incrementing = false;
     protected $keyType = 'int';
     protected $fillable = ['id', 'nome', 'campanha_id'];
+    public function campanha()
+    {
+        return $this->belongsTo(Campanha::class);
+    }
 }

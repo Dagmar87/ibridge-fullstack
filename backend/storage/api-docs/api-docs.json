@@ -27,10 +27,13 @@
                     "properties": {
                       "lista_id": { "type": "integer" },
                       "total": { "type": "integer" },
+                      "sem_contato": { "type": "integer" },
+                      "contato": { "type": "integer" },
+                      "abordagem": { "type": "integer" },
                       "fechamentos": { "type": "integer" },
                       "lista": { "type": "object" }
                     },
-                    "required": ["lista_id", "total", "fechamentos"]
+                    "required": ["lista_id", "total", "sem_contato", "contato", "abordagem", "fechamentos"]
                   }
                 }
               }
